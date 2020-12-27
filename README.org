@@ -11,7 +11,7 @@ around the same keybindings for ease of use.
 * Dotfiles?
 #+CAPTION: Desktop Screenshot
 #+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
-[[[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot.png?raw=true]]]]
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot.png?raw=true]]
 
 My dotfiles are configured with around the same keybindings.
 I first started with Xmonad, so all keybindings are based on the
