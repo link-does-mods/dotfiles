@@ -1,0 +1,26 @@
+#+TITLE: Link Does Mods Dotfiles
+These are all my dotfiles for each window manager I use.
+Each is configured specifically to my liking with all having
+around the same keybindings for ease of use.
+
+* Table of Contents :toc:
+- [[#dotfiles][Dotfiles?]]
+- [[#window-manager-configs][Window Manager Configs]]
+- [[#other-configs][Other Configs]]
+
+* Dotfiles?
+#+CAPTION: Desktop Screenshot
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+[[[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot.png?raw=true]]]]
+
+My dotfiles are configured with around the same keybindings.
+I first started with Xmonad, so all keybindings are based on the
+Xmonad keybindings I have set. They are all configured with the same
+color scheme and wallpaper so each look the same. These are all here for use as a
+reference or just for easy acess so if I ever distro-hop (probably
+not ever going to anytime soon), they will be here for me to access.
+
+* Window Manager Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/qtile][Qtile]]
+
+* Other Configs
