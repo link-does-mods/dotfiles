@@ -40,7 +40,10 @@ from typing import List  # noqa: F401
 def autostart():
     processes = [
         ['autorandr', '--change'], # Set screen layout
-        ['nitrogen', '--restore']  # Set wallpaper
+        ['nitrogen', '--restore'], # Set wallpaper
+        ['picom'],                 # Start picom
+        ['blueman-applet'],        # Bluetooth service
+        ['pamac-tray']             # Pamac (check updates)
     ]
 
     # Run each command with a 1 second delay between each one
@@ -214,11 +217,9 @@ screens = [
                 widget.Sep(padding=20),
                 widget.PulseVolume(foreground=colors[7]),
                 widget.Sep(padding=20),
-                widget.CheckUpdates(custom_command='~/.config/polybar/scripts/check-all-updates.sh'),
-                widget.Sep(padding=20),
                 widget.Systray(),
                 widget.Sep(padding=20),
-                widget.Clock(format='  %a %m %Y - %I:%M %p', foreground=colors[8]),
+                widget.Clock(format='  %b %d %Y - %H:%M %p', foreground=colors[8]),
             ],
             24,
         ),
@@ -233,7 +234,7 @@ screens = [
                 widget.WindowName(foreground=colors[4]),
                 widget.Net(inteerface='wlp2s0', format=' {down}   {up}', foreground=colors[7]),
                 widget.Sep(padding=20),
-                widget.Clock(format='  %a %m %Y - %I:%M %p', foreground=colors[8]),
+                widget.Clock(format='  %b %d %Y - %H:%M %p', foreground=colors[8]),
             ],
             24,
         ),
