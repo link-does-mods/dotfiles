@@ -21,5 +21,9 @@ not ever going to anytime soon), they will be here for me to access.
 
 * Window Manager Configs
 - [[https://github.com/link-does-mods/dotfiles/tree/main/.config/qtile][Qtile]]
-
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.xmonad][Xmonad]]
 * Other Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/alacritty][Alacritty]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/nvim][Neovim]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/picom][Picom]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/polybar][Polybar]]
