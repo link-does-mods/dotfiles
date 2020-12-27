@@ -1,7 +1,10 @@
 #+TITLE: Qtile Config
+This is my Qtile config with all my modifications I added.
+Some parts you may want, and others you may not want. Just pick and choose what you want.
+This config is hevily bloated with comments so you can reference what each line does.
+Hopefully they help. If not, oh well for you.
 #+PROPERTY: header-args :tangle config.py
 * Table of Contents :toc:
-- [[#about-config][About Config]]
 - [[#import-modules][Import Modules]]
 - [[#autostart][Autostart]]
 - [[#keybindings][Keybindings]]
@@ -9,12 +12,6 @@
 - [[#layouts][Layouts]]
 - [[#panel][Panel]]
 - [[#misc-dunno-what-these-do][Misc (Dunno what these do)]]
-
-* About Config
-This is my Qtile config with all my modifications I added.
-Some parts you may want, and others you may not want. Just pick and choose what you want.
-This config is hevily bloated with comments so you can reference what each line does.
-Hopefully they help. If not, oh well for you.
 
 * Import Modules
 #+begin_src python
