@@ -1,17 +1,16 @@
 #+TITLE: Xmonad Config
+
+Gasp! This is written entirely in Haskell?! Well... it ain't that bad since my config
+has comments everywhere. Makes things bloated, but if it helps you guys, then I'm all
+in for them. You'll for sure want parts of my config, so go on ahead! Take what you want and make modifications of your own.
+
 #+PROPERTY: header-args :tangle xmonad.hs
 * Table of Contents :toc:
-- [[#about-config][About Config]]
 - [[#other-parts][Other Parts]]
 - [[#import-libraries][Import Libraries]]
 - [[#autostart-script][Autostart Script]]
 - [[#window-colors][Window Colors]]
 - [[#variables][Variables]]
-
-* About Config
-Gasp! This is written entirely in Haskell?! Well... it ain't that bad since my config
-has comments everywhere. Makes things bloated, but if it helps you guys, then I'm all
-in for them. You'll for sure want parts of my config, so go on ahead! Take what you want and make modifications of your own.
 
 * Other Parts
 To make things less bloated, I split up the config into multiple config files. To find my
