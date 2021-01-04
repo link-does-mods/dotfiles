@@ -1,0 +1,31 @@
+#+TITLE: Tokyo Night
+This is a theme based off the nighttime colors of downtown Tokyo. Everything is configured around a dark theme and a unique colorscheme that uses all the nighttime colors that display the night life of downtown Tokyo.
+
+* Table of Contents :toc:
+- [[#screenshots][Screenshots]]
+- [[#window-manager-configs][Window Manager Configs]]
+- [[#program-configs][Program Configs]]
+
+* Screenshots
+#+CAPTION: Desktop Screenshot
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot%203.png?raw=true]]
+
+#+CAPTION: Desktop Screenshot 2
+#+ATTR_HTML: :alt Desktop Screenshot 2 :title Desktop Screenshot 2 :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot%201.png?raw=true]]
+
+#+CAPTION: Desktop Screenshot 3
+#+ATTR_HTML: :alt Desktop Screenshot 3 :title Desktop Screenshot 3 :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot%202.png?raw=true]]
+
+* Window Manager Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.xmonad][Xmonad]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/qtile][Qtile]]
+
+* Program Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/alacrittyhttps://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/nvim][Alacritty]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/nvim][Neovim]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/polybar][Polybar]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/rofi][Rofi]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/powerline-shell][Powerline Shell]]
