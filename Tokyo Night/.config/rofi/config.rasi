@@ -1,0 +1,10 @@
+configuration {
+  show-icons:         true;
+  cycle:              true;
+  hide-scrollbar:     true;
+  disable-history:    true;
+  sidebar-mode:       false;
+  modi:               "drun,run,window";
+  columns: 3;
+}
+@import "/usr/share/rofi/themes/dark.rasi"
