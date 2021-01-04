@@ -4,26 +4,14 @@ Each is configured specifically to my liking with custom themes, color schemes, 
 
 * Table of Contents :toc:
 - [[#dotfiles][Dotfiles?]]
-- [[#window-manager-configs][Window Manager Configs]]
-- [[#other-configs][Other Configs]]
+- [[#themes][Themes]]
 
 * Dotfiles?
 #+CAPTION: Desktop Screenshot
 #+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
 [[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Screenshot.png?raw=true]]
 
-My dotfiles are configured with around the same keybindings.
-I first started with Xmonad, so all keybindings are based on the
-Xmonad keybindings I have set. They are all configured with the same
-color scheme and wallpaper so each look the same. These are all here for use as a
-reference or just for easy acess so if I ever distro-hop (probably
-not ever going to anytime soon), they will be here for me to access.
+My dotfiles are here! All of my various window manager and program configs are here for you gous, and me as well, to access at any time. Each set of configs is based on one central theme with the various configs specific to each window manager and program inside. Feel free to browse through 'em all and find a theme you like. Maybe you will be inspired by one of my configs and create your own. Whatever the case may be, they are all here for you guys to use or reference.
 
-* Window Manager Configs
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/qtile][Qtile]]
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.xmonad][Xmonad]]
-* Other Configs
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/alacritty][Alacritty]]
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/nvim][Neovim]]
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/picom][Picom]]
-- [[https://github.com/link-does-mods/dotfiles/tree/main/.config/polybar][Polybar]]
+* Themes
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night][Tokyo Night]]
