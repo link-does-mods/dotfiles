@@ -4,12 +4,10 @@ Gasp! This is written entirely in Haskell?! Well... it ain't that bad since my c
 has comments everywhere. Makes things bloated, but if it helps you guys, then I'm all
 in for them. You'll for sure want parts of my config, so go on ahead! Take what you want and make modifications of your own.
 
-#+PROPERTY: header-args :tangle xmonad.hs
 * Table of Contents :toc:
 - [[#other-parts][Other Parts]]
 - [[#import-libraries][Import Libraries]]
-- [[#autostart-script][Autostart Script]]
-- [[#window-colors][Window Colors]]
+- [[#autostart][Autostart]]
 - [[#variables][Variables]]
 
 * Other Parts
@@ -74,15 +72,13 @@ import qualified DBus as D
 import qualified DBus.Client as D
 #+end_src
 
-* Autostart Script
+* Autostart
 #+begin_src haskell
--- Autostart script
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh" -- Location to autostart.sh
-    setWMName "LG3D"                           -- Custom WM name
 #+end_src
 
-* Window Colors
+* Variables
 #+begin_src haskell
 -- colors
 normBord = "#485e8c"
@@ -90,10 +86,7 @@ focdBord = "#7aa2f7"
 fore     = "#DEE3E0"
 back     = "#282c34"
 winType  = "#c678dd"
-#+end_src
 
-* Variables
-#+begin_src haskell
 --mod4Mask= super key
 --mod1Mask= alt key
 --controlMask= ctrl key

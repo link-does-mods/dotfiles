@@ -1,3 +1,15 @@
+-----------------------------------------------
+--           _    _____ _________            --
+--          | |  |  _  \  _   _  |           --
+--          | |  | | | | | | | | |           --
+--          | |  | | | | | | | | |           --
+--          | |__| |_| | | | | | |           --
+--          |____|____/|_| |_| |_|           --
+--                                           --
+--   site: https://link-does-mods.github.io/ -- 
+-- github: https://github.com/link-does-mods -- 
+-----------------------------------------------
+
 module Custom.TreeMenu where
 
 ----------------------------------
@@ -16,10 +28,9 @@ import qualified Data.Map as M
 import Data.Tree
 
 ----------------------------------
--- Tree Select
+-- Menu
 ----------------------------------
 
--- Menu
 treeselectAction :: TS.TSConfig (X ()) -> X ()
 treeselectAction a = TS.treeselectAction a
     [ Node (TS.TSNode "+  Configs"    "Programs and Xmonad" (return ()))

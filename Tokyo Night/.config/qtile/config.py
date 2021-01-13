@@ -1,3 +1,19 @@
+#############################################
+#           _    _____ _________            #
+#          | |  |  _  \  _   _  |           #
+#          | |  | | | | | | | | |           #
+#          | |  | | | | | | | | |           #
+#          | |__| |_| | | | | | |           #
+#          |____|____/|_| |_| |_|           #
+#                                           #
+#   site: https://link-does-mods.github.io/ #
+# github: https://github.com/link-does-mods #
+#############################################
+
+#######################################################
+# Import Libraries
+#######################################################
+
 # Generic
 import os
 import re
@@ -16,11 +32,16 @@ from libqtile.utils import guess_terminal
 # Typing
 from typing import List  # noqa: F401
 
+#######################################################
+# Autostart
+#######################################################
+
 @hook.subscribe.startup_once
 def autostart():
     processes = [
         ['autorandr', '--change'], # Set screen layout
         ['nitrogen', '--restore']  # Set wallpaper
+        ['picom']                  # Picom compositor
     ]
 
     # Run each command with a 1 second delay between each one
@@ -28,8 +49,75 @@ def autostart():
         subprocess.Popen(p)
         time.sleep(1)
 
+#######################################################
+# Variables
+#######################################################
+
+# Mod key
 mod = "mod4"
-terminal = guess_terminal()
+
+# Terminal
+terminal = "alacritty"
+
+# Tokyo night (storm) color scheme
+colors = [["#24283b", "#24283b"], # Background
+          ["#a9b1d6", "#a9b1d6"], # Foreground
+          ["#32344a", "#32344a"], # Black
+          ["#f7768e", "#f7768e"], # Red
+          ["#9ece6a", "#9ece6a"], # Green
+          ["#e0af68", "#e0af68"], # Yellow
+          ["#7aa2f7", "#7aa2f7"], # Blue
+          ["#ad8ee6", "#ad8ee6"], # Magenta
+          ["#449dab", "#449dab"], # Cyan
+          ["#787c99", "#787c99"]] # White
+
+
+# Layout theme
+def init_layout_theme():
+    return {"margin":10,
+            "border_width":4,
+            "border_focus": "#7aa2f7",
+            "border_normal": "#485e8c"
+            }
+layout_theme = init_layout_theme()
+
+# Widget settings
+widget_defaults = dict(
+    font='sans',
+    fontsize=12,
+    padding=3
+)
+extension_defaults = widget_defaults.copy()
+
+dgroups_key_binder = None
+dgroups_app_rules = []  # type: List
+main = None  # WARNING: this is deprecated and will be removed soon
+follow_mouse_focus = True
+bring_front_click = False
+cursor_warp = False
+floating_layout = layout.Floating(float_rules=[
+    # Run the utility of `xprop` to see the wm class and name of an X client.
+    {'wmclass': 'confirm'},
+    {'wmclass': 'dialog'},
+    {'wmclass': 'download'},
+    {'wmclass': 'error'},
+    {'wmclass': 'file_progress'},
+    {'wmclass': 'notification'},
+    {'wmclass': 'splash'},
+    {'wmclass': 'toolbar'},
+    {'wmclass': 'confirmreset'}, # gitk
+    {'wmclass': 'makebranch'},   # gitk
+    {'wmclass': 'maketag'},      # gitk
+    {'wname': 'branchdialog'},   # gitk
+    {'wname': 'pinentry'},       # GPG key password entry
+    {'wmclass': 'ssh-askpass'},  # ssh-askpass
+])
+auto_fullscreen = True
+focus_on_window_activation = "smart"
+
+#######################################################
+# Key Bindings
+#######################################################
 
 keys = [
     # Switch between windows in current stack pane
@@ -121,34 +209,9 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
+#######################################################
 # Layouts
-def init_layout_theme():
-    return {"margin":10,
-            "border_width":4,
-            "border_focus": "#7aa2f7",
-            "border_normal": "#485e8c"
-            }
-layout_theme = init_layout_theme()
-
-# Panel
-colors = [["#24283b", "#24283b"], # Background
-          ["#a9b1d6", "#a9b1d6"], # Foreground
-          ["#32344a", "#32344a"], # Black
-          ["#f7768e", "#f7768e"], # Red
-          ["#9ece6a", "#9ece6a"], # Green
-          ["#e0af68", "#e0af68"], # Yellow
-          ["#7aa2f7", "#7aa2f7"], # Blue
-          ["#ad8ee6", "#ad8ee6"], # Magenta
-          ["#449dab", "#449dab"], # Cyan
-          ["#787c99", "#787c99"]] # White
-
-# Panel widgets
-widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
-)
-extension_defaults = widget_defaults.copy()
+#######################################################
 
 layouts = [
     # layout.Bsp(),
@@ -159,33 +222,71 @@ layouts = [
     # layout.Tile(),
     # layout.TreeTab(),
     # layout.VerticalTile(),
-    # layout.Zoomy(),
+    # layout.Zoomy(),:vs
+    #
     layout.MonadTall(**layout_theme),           # Master and stack (similar to Xmonad)
     layout.Stack(**layout_theme, num_stacks=1), # Tabbed without tabs
     layout.Max()                                # Almost fullscreen (no borders)
 ]
+
+#######################################################
+# Panel
+#######################################################
 
 screens = [
     # Monitor 1 (primary)
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(foreground=colors[3]),
+                widget.CurrentLayout(
+                         foreground=colors[3]
+                         ),
                 widget.GroupBox(),
-                widget.WindowName(foreground=colors[4]),
-                widget.CPU(format=' {load_percent}%', foreground=colors[5]),
-                widget.Sep(padding=20),
-                widget.Memory(format=' {MemUsed}M', foreground=colors[5]),
-                widget.Sep(padding=20),
-                widget.Wlan(interface='wlp2s0', format=' {essid}', foreground=colors[6]),
-                widget.Sep(padding=20),
-                widget.PulseVolume(foreground=colors[7]),
-                widget.Sep(padding=20),
-                widget.CheckUpdates(custom_command='~/.config/polybar/scripts/check-all-updates.sh'),
-                widget.Sep(padding=20),
+                widget.WindowName(
+                         foreground=colors[4]
+                         ),
+                widget.CPU(
+                         format=' {load_percent}%',
+                         foreground=colors[5]
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
+                widget.Memory(
+                         format=' {MemUsed}M',
+                         foreground=colors[5]
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
+                widget.Wlan(
+                         interface='wlp2s0',
+                         format=' {essid}',
+                         foreground=colors[6]
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
+                widget.PulseVolume(
+                         foreground=colors[7]
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
+                 widget.Pacman(
+                         fmt='Updates: {}',
+                         update_interval=1,
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
                 widget.Systray(),
-                widget.Sep(padding=20),
-                widget.Clock(format='  %a %m %Y - %I:%M %p', foreground=colors[8]),
+                widget.Sep(
+                         padding=20),
+                widget.Clock(
+                         format='  %a %m %Y - %I:%M %p',
+                         foreground=colors[8]
+                         ),
             ],
             24,
         ),
@@ -194,41 +295,27 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.CurrentLayout(foreground=colors[3]),
+                widget.CurrentLayout(
+                         foreground=colors[3]
+                         ),
                 widget.GroupBox(),
-                widget.Prompt(),
-                widget.WindowName(foreground=colors[4]),
-                widget.Net(inteerface='wlp2s0', format=' {down}   {up}', foreground=colors[7]),
-                widget.Sep(padding=20),
-                widget.Clock(format='  %a %m %Y - %I:%M %p', foreground=colors[8]),
+                widget.WindowName(
+                         foreground=colors[4]
+                         ),
+                widget.Net(
+                         inteerface='wlp2s0',
+                         format=' {down}   {up}',
+                         foreground=colors[7]
+                         ),
+                widget.Sep(
+                         padding=20
+                         ),
+                widget.Clock(
+                         format='  %a %m %Y - %I:%M %p',
+                         foreground=colors[8]
+                         ),
             ],
             24,
         ),
     ),
 ]
-
-dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
-main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
-floating_layout = layout.Floating(float_rules=[
-    # Run the utility of `xprop` to see the wm class and name of an X client.
-    {'wmclass': 'confirm'},
-    {'wmclass': 'dialog'},
-    {'wmclass': 'download'},
-    {'wmclass': 'error'},
-    {'wmclass': 'file_progress'},
-    {'wmclass': 'notification'},
-    {'wmclass': 'splash'},
-    {'wmclass': 'toolbar'},
-    {'wmclass': 'confirmreset'}, # gitk
-    {'wmclass': 'makebranch'},   # gitk
-    {'wmclass': 'maketag'},      # gitk
-    {'wname': 'branchdialog'},   # gitk
-    {'wname': 'pinentry'},       # GPG key password entry
-    {'wmclass': 'ssh-askpass'},  # ssh-askpass
-])
-auto_fullscreen = True
-focus_on_window_activation = "smart"

@@ -1,8 +1,20 @@
+-----------------------------------------------
+--           _    _____ _________            --
+--          | |  |  _  \  _   _  |           --
+--          | |  | | | | | | | | |           --
+--          | |  | | | | | | | | |           --
+--          | |__| |_| | | | | | |           --
+--          |____|____/|_| |_| |_|           --
+--                                           --
+--   site: https://link-does-mods.github.io/ -- 
+-- github: https://github.com/link-does-mods -- 
+-----------------------------------------------
+
 module Custom.Keys where
 
-----------------------------------
+------------------------------------------------------
 -- Import Modules
-----------------------------------
+------------------------------------------------------
 
 -- Custom
 import Custom.TreeMenu
@@ -27,9 +39,9 @@ import XMonad.Layout.MultiToggle.Instances
 import Graphics.X11.ExtraTypes.XF86
 import qualified XMonad.StackSet as W
 
-----------------------------------
+------------------------------------------------------
 -- Key bindings
-----------------------------------
+------------------------------------------------------
 
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 
@@ -129,9 +141,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
       | (key, sc) <- zip [xK_Left, xK_Right] [0..]
       , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
-----------------------------------
+------------------------------------------------------
 -- Mouse Bindings
-----------------------------------
+------------------------------------------------------
 
 -- Floating mode
 myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $

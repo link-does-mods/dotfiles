@@ -1,6 +1,18 @@
-##################################
+#############################################
+#           _    _____ _________            #
+#          | |  |  _  \  _   _  |           #
+#          | |  | | | | | | | | |           #
+#          | |  | | | | | | | | |           #
+#          | |__| |_| | | | | | |           #
+#          |____|____/|_| |_| |_|           #
+#                                           #
+#   site: https://link-does-mods.github.io/ #
+# github: https://github.com/link-does-mods #
+#############################################
+
+#######################################################
 # Window appearence
-##################################
+#######################################################
 
 # Window title
 title: Alacritty
@@ -37,9 +49,11 @@ colors:
       cyan:    '0x0db9d7'
       white:   '0xacb0d0'
 
+# Transparency of window
 background_opacity: 0.80
 
 window:
+  # Space between window border and text
   padding:
     x: 6
     y: 6

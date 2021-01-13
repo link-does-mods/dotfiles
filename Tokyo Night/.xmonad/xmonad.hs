@@ -1,3 +1,19 @@
+-----------------------------------------------
+--           _    _____ _________            --
+--          | |  |  _  \  _   _  |           --
+--          | |  | | | | | | | | |           --
+--          | |  | | | | | | | | |           --
+--          | |__| |_| | | | | | |           --
+--          |____|____/|_| |_| |_|           --
+--                                           --
+--   site: https://link-does-mods.github.io/ -- 
+-- github: https://github.com/link-does-mods -- 
+-----------------------------------------------
+
+------------------------------------------------------
+-- Import Libraries
+------------------------------------------------------
+
 -- Custom
 import Custom.TreeMenu
 import Custom.Keys
@@ -51,10 +67,16 @@ import Control.Monad (liftM2)
 import qualified DBus as D
 import qualified DBus.Client as D
 
--- Autostart script
+------------------------------------------------------
+-- Autostart
+------------------------------------------------------
+
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh" -- Location to autostart.sh
-    setWMName "LG3D"                           -- Custom WM name
+
+------------------------------------------------------
+-- Variables
+------------------------------------------------------
 
 -- colors
 normBord = "#485e8c"
