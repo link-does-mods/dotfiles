@@ -1,0 +1,31 @@
+#+TITLE: Ahsoka
+You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well... to make things short and not bore you with lots of information, I'll cut to the chase. She was a padawan to Anakin learning to be ajedi. Oh, she is also my favorite star wars character, which is the reason this theme was created. Everything in this theme is based off of the nord color scheme. Hope you like this theme and stay frosty!
+
+* Table of Contents :toc:
+- [[#screenshots][Screenshots]]
+- [[#window-manager-configs][Window Manager Configs]]
+- [[#program-configs][Program Configs]]
+
+* Screenshots
+#+CAPTION: Desktop Screenshot
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Ahsoka-Screenshot.png?raw=true]]
+
+
+#+CAPTION: Desktop Screenshot 2
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Ahsoka-Screenshot%201.png?raw=true]]
+
+#+CAPTION: Desktop Screenshot
+#+ATTR_HTML: :alt Desktop Screenshot :title Desktop Screenshot :align left
+[[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Ahsoka%20Screenshot-2.png?raw=true]]
+
+* Window Manager Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/qtile][Qtile]]
+
+* Program Configs
+
+
+#+CAPTION: Footer Decoration
+#+ATTR_HTML: :alt Footer Decoration :title Footer Decoration
+[[https://github.com/link-does-mods/dotfiles/blob/main/Footer%20Decoration.png?raw=true]]
