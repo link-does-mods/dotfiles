@@ -1,13 +1,14 @@
-#
-# ~/.bashrc
-#
-
-#Ibus settings if you need them
-#type ibus-setup in terminal to change settings and start the daemon
-#delete the hashtags of the next lines and restart
-#export GTK_IM_MODULE=ibus
-#export XMODIFIERS=@im=dbus
-#export QT_IM_MODULE=ibus
+#############################################
+#           _    _____ _________            #
+#          | |  |  _  \  _   _  |           #
+#          | |  | | | | | | | | |           #
+#          | |  | | | | | | | | |           #
+#          | |__| |_| | | | | | |           #
+#          |____|____/|_| |_| |_|           #
+#                                           #
+#   site: https://link-does-mods.github.io/ #
+# github: https://github.com/link-does-mods #
+#############################################
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
