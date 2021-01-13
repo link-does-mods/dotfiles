@@ -15,4 +15,4 @@ My dotfiles are here! All of my various window manager and program configs are h
 
 * Themes
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night][Tokyo Night]]
-- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka][Ahsoka]]
