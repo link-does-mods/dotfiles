@@ -405,5 +405,5 @@ layouts = [
 #+end_src
 
 #+CAPTION: Footer Decoration
-#+ATTR_HTML: :alt Footer Decoration :title Footer Decoration :align left
+#+ATTR_HTML: :alt Footer Decoration :title Footer Decoration :align center
 [[https://github.com/link-does-mods/dotfiles/blob/main/Footer%20Decoration.png?raw=true]]
