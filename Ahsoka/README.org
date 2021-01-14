@@ -24,7 +24,11 @@ You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well...
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/qtile][Qtile]]
 
 * Program Configs
-
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/alacritty][Alacritty]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/nvim][Neovim]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/picom][Picom]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/polybar][Polybar]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/rofi][Rofi]]
 
 #+CAPTION: Footer Decoration
 #+ATTR_HTML: :alt Footer Decoration :title Footer Decoration :style margin-left: auto; margin-right: auto;

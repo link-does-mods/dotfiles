@@ -26,6 +26,7 @@ This is a theme based off the nighttime colors of downtown Tokyo. Everything is 
 * Program Configs
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/alacrittyhttps://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/nvim][Alacritty]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/nvim][Neovim]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/picom][Picom]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/polybar][Polybar]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/rofi][Rofi]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night/.config/powerline-shell][Powerline Shell]]
