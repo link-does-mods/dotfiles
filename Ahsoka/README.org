@@ -21,6 +21,7 @@ You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well...
 [[https://github.com/link-does-mods/dotfiles/blob/main/screenshots/Ahsoka%20Screenshot-2.png?raw=true]]
 
 * Window Manager Configs
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/i3][i3]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/qtile][Qtile]]
 
 * Program Configs
