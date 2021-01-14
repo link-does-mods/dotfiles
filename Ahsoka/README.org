@@ -1,5 +1,5 @@
 #+TITLE: Ahsoka
-You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well... to make things short and not bore you with lots of information, I'll cut to the chase. She was a padawan to Anakin learning to be ajedi. Oh, she is also my favorite star wars character, which is the reason this theme was created. Everything in this theme is based off of the nord color scheme. Hope you like this theme and stay frosty!
+You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well... to make things short and not bore you with lots of information, I'll cut to the chase. She was a padawan to Anakin learning to be a jedi. Oh, she is also my favorite star wars character, which is the reason this theme was created. Everything in this theme is based off of the nord color scheme. Hope you like this theme and stay frosty!
 
 * Table of Contents :toc:
 - [[#screenshots][Screenshots]]
