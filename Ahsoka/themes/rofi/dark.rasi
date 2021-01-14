@@ -1,0 +1,81 @@
+* {
+  text-color: @foreground-list;
+  font: @text-font;
+  border-radius: 8px;
+  accent:           #d8dee9;
+  background-color: #2e3440;
+  background-light: #3b4252;
+  background-focus: #5e81ac;
+  foreground:       #d8dee9;
+  foreground-list:  #d8dee9;
+  prompt-menu-font:                     "Comfortaa Bold 9";
+  text-font:                            "Comfortaa Bold 12";
+  entry-icon-font:                      "Comfortaa Bold 16";
+  inputbar-margin:                      4px 4px;
+  prompt-padding:                       14px 16px;
+  entry-padding:                        16px 14px 14px 0px;
+  prompt-window-height:                 300px;
+  prompt-window-width:                  600px;
+  prompt-prompt-margin:                 8px;
+  prompt-element-padding:               26px 29px 24px 2px;
+  list-element-padding:                 13px;
+  list-element-margin:                  @inputbar-margin;
+  list-8-window-padding:                0px 0px;
+  apps-textbox-prompt-colon-padding:    7px;
+  network-textbox-prompt-colon-padding: 12px 9px 8px 10px;
+}
+
+#window {
+  anchor: center;
+  location: center;
+  border-radius: 8px;
+  width: 50%;
+  height: 50%;
+}
+
+inputbar,
+prompt,
+textbox-prompt-colon,
+entry {
+  background-color: @background-light;
+}
+
+#inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+  margin: @inputbar-margin;
+}
+
+#prompt {
+  font: @entry-icon-font;
+  padding: @prompt-padding;
+  background-color: @background-focus;
+  text-color: @accent;
+}
+
+#textbox-prompt-colon {
+  expand: false;
+  str: "";
+  padding: @apps-textbox-prompt-colon-padding;
+}
+
+#entry {
+  text-color: @foreground;
+  padding: @entry-padding;
+}
+
+#element {
+  padding: @list-element-padding;
+  margin: @list-element-margin;
+  background-color: @background-light;
+  border-color: @background-light;
+}
+
+#element.selected {
+  background-color: @background-focus;
+  text-color: @foreground-list;
+  border-radius: 8px;
+}
+
+#element-icon {
+    size: 2ch;
+}

@@ -1,0 +1,80 @@
+#############################################
+#           _    _____ _________            #
+#          | |  |  _  \  _   _  |           #
+#          | |  | | | | | | | | |           #
+#          | |  | | | | | | | | |           #
+#          | |__| |_| | | | | | |           #
+#          |____|____/|_| |_| |_|           #
+#                                           #
+#   site: https://link-does-mods.github.io/ #
+# github: https://github.com/link-does-mods #
+#############################################
+
+
+#######################################################
+# Window appearence
+#######################################################
+
+# Window title
+title: Alacritty
+
+# Window Class
+class:
+  instance: Alacritty
+  general: Alacritty
+
+# Bold text drawn in bright colors
+draw_bold_text_with_bright_colors: true
+
+# Fonts
+font:
+  normal:
+    family: Mononoki Nerd Font
+    style: Regular
+  bold:
+    family: Mononoki Nerd Font
+    style: Bold
+  italic:
+    family: Mononoki Nerd Font
+    style: Italic
+  bold_italic:
+    family: Mononoki Nerd Font
+    style: Bold Italic
+  size: 12.0
+
+# Colors (Nord)
+colors:
+   # Default colors
+   primary:
+     background: '#2E3440'
+     foreground: '#D8DEE9'
+
+   # Normal colors
+   normal:
+     black:   '#3B4252'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#88C0D0'
+     white:   '#E5E9F0'
+
+   # Bright colors
+   bright:
+     black:   '#4C566A'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#8FBCBB'
+     white:   '#ECEFF4'
+
+background_opacity: 0.95
+
+window:
+  # Gap between border and text
+  padding:
+    x: 6
+    y: 6
