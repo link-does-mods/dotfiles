@@ -1,0 +1,215 @@
+<!-- ############################################# -->
+<!-- #           _    _____ _________            # -->
+<!-- #          | |  |  _  \  _   _  |           # -->
+<!-- #          | |  | | | | | | | | |           # -->
+<!-- #          | |  | | | | | | | | |           # -->
+<!-- #          | |__| |_| | | | | | |           # -->
+<!-- #          |____|____/|_| |_| |_|           # -->
+<!-- #                                           # -->
+<!-- #   site: https://link-does-mods.github.io/ # -->
+<!-- # github: https://github.com/link-does-mods # -->
+<!-- ############################################# -->
+
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="terminal-menu" label="Terminals">
+  <item label="Alacritty" icon="/usr/share/icons/Papirus-Dark/48x48/apps/Alacritty.svg">
+    <action name="Execute">
+      <command>alacritty</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="ST" icon="/usr/share/icons/Papirus-Dark/48x48/apps/terminal.svg">
+    <action name="Execute">
+      <command>st</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="file-manager-menu" label="File Managers">
+  <item label="Nemo" icon="/usr/share/icons/Papirus-Dark/48x48/apps/nemo.svg">
+    <action name="Execute">
+      <command>nemo</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Archive Manager" icon="/usr/share/icons/Papirus-Dark/48x48/apps/file-roller.svg">
+    <action name="Execute">
+      <command>file-roller</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="browser-menu" label="Web Browsers">
+  <item label="Brave" icon="/usr/share/icons/Papirus-Dark/48x48/apps/brave-browser.svg">
+    <action name="Execute">
+      <command>brave</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="LibreWolf" icon="/usr/share/icons/hicolor/48x48/apps/librewolf.png">
+    <action name="Execute">
+      <command>librewolf</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="editor-menu" label="Editors">
+  <item label="Emacs" icon="/usr/share/icons/Papirus-Dark/48x48/apps/emacs.svg">
+    <action name="Execute">
+      <command>emacs</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Atom" icon="/usr/share/icons/Papirus-Dark/48x48/apps/atom.svg">
+    <action name="Execute">
+      <command>atom</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="media-menu" label="Media">
+  <item label="Vlc" icon="/usr/share/icons/Papirus-Dark/48x48/apps/vlc.svg">
+    <action name="Execute">
+      <command>vlc</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Spotify" icon="/usr/share/icons/Papirus-Dark/48x48/apps/spotify.svg">
+    <action name="Execute">
+      <command>env LD_PRELOAD=/usr/lib/spotify-adblock.so spotify %U</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Audacity" icon="/usr/share/icons/Papirus-Dark/48x48/apps/audacity.svg">
+    <action name="Execute">
+      <command>audacity</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="graphics-menu" label="Graphics">
+  <item label="Gimp" icon="/usr/share/icons/Papirus-Dark/48x48/apps/gimp.svg">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Inkscape" icon="/usr/share/icons/Papirus-Dark/48x48/apps/inkscape.svg">
+    <action name="Execute">
+      <command>inkscape</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="appearance-menu" label="Appearance">
+  <item label="Nitrogen" icon="/usr/share/icons/Papirus-Dark/48x48/apps/nitrogen.svg">
+    <action name="Execute">
+      <command>nitrogen</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="GTK Theme Tool" icon="/usr/share/icons/Papirus-Dark/48x48/apps/org.xfce.settings.appearance.svg">
+    <action name="Execute">
+      <command>lxappearance</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Network Manager" icon="/usr/share/icons/Papirus-Dark/48x48/apps/nm-device-wireless.svg">
+    <action name="Execute">
+      <command>nm-connection-editor</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="PulseAudio" icon="/usr/share/icons/Papirus-Dark/48x48/apps/org.pulseaudio.pavucontrol.svg">
+    <action name="Execute">
+      <command>pavucontrol</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Bluetooth" icon="/usr/share/icons/Papirus-Dark/48x48/apps/blueman.svg">
+    <action name="Execute">
+      <command>blueman-manager</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="openbox-menu" label="Openbox">
+  <item label="Restart Openbox" icon="/usr/share/icons/Papirus-Dark/48x48/apps/system-restart.svg">
+    <action name="Execute">
+      <command>openbox --reconfigure</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+<separator label="Programs" />
+  <menu id="terminal-menu" />
+  <menu id="file-manager-menu" />
+  <menu id="browser-menu" />
+  <menu id="editor-menu" />
+  <menu id="media-menu" />
+  <menu id="graphics-menu" />
+<separator label="Settings" />
+  <menu id="appearance-menu" />
+  <menu id="system-menu" />
+  <menu id="openbox-menu" />
+  <separator />
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
