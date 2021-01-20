@@ -1,4 +1,4 @@
-#+TITLE: Readme
+#+TITLE: I3 Config
 
 This was the first tiling window manager I have tried. I think it is great for what it does and the config isn't complicated to uderstand, which is the man reason why I like this window manager so much. Maybe you will enjoy it the same way I do as well.
 
