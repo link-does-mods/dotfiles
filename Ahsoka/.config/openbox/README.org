@@ -1,6 +1,6 @@
 #+TITLE: Openbox Config
 
-This is my openbox config. It is a cross between a floating window manager and a tiling window manager. It works like a floating window manager does with tiling window manager keybindings added. It is the best of both worlds so there's something for everyone to enjoy. On yeah. This window manager splits up the configs into multiple partsd so be sure to check out the rest.
+This is my openbox config. It is a cross between a floating window manager and a tiling window manager. It works like a floating window manager does, with tiling window manager keybindings added. It is the best of both worlds so there's something for everyone to enjoy. Oh yeah. This window manager splits up the configs into multiple partsd so be sure to check out the rest.
 
 * Table of Contents :toc:
 - [[#beginning][Beginning]]
