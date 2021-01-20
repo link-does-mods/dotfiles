@@ -1,0 +1,192 @@
+#+TITLE: Readme
+
+This was the first tiling window manager I have tried. I think it is great for what it does and the config isn't complicated to uderstand, which is the man reason why I like this window manager so much. Maybe you will enjoy it the same way I do as well.
+
+* Table of contents :toc:
+- [[#autostart][Autostart]]
+- [[#variables][Variables]]
+- [[#key-bindings][Key Bindings]]
+- [[#window-styling][Window Styling]]
+
+* Autostart
+#+begin_src conf
+exec --no-startup-id sh ~/.config/i3/autostart.sh
+#+end_src
+
+* Variables
+#+begin_src conf
+# Mod key (Mod1 is alt key)
+set $mod Mod4
+
+set $term alacritty
+
+# Font for window titles
+font pango:monospace 8
+
+# Workspace names and number of workspaces
+set $ws1 "1"
+set $ws2 "2"
+# set $ws3 "3"
+# set $ws4 "4"
+# set $ws5 "5"
+# set $ws6 "6"
+# set $ws7 "7"
+# set $ws8 "8"
+# set $ws9 "9"
+# set $ws10 "10"
+#+end_src
+
+* Key Bindings
+#+begin_src conf
+# Multimedia keys
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle     # Mute volume
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2%- # Lower volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2%+ # Raise volume
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause            # Play/pause song
+bindsym XF86AudioNext exec --no-startup-id playerctl next                  # Next song
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous              # Previous song
+bindsym XF86AudioStop exec --no-startup-id playerctl stop                  # Stop song
+
+# Brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5         # Raise brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5       # Lower brightness
+
+# System
+bindsym $mod+Shift+r exec --no-startup-id sh ~/scripts/polybar.sh # Restart i3
+bindsym $mod+Shift+e exec arcolinux-logout                        # Logout prompt
+
+# Close window
+bindsym $mod+q kill
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Program launchers
+bindsym $mod+d exec rofi -show drun                             # Rofi
+bindsym $mod+Shift+d exec --no-startup-id sh ~/scripts/dmenu.sh # Custom dmenu script (opens config in editor)
+
+# Change focus
+# bindsym $mod+j focus left
+# bindsym $mod+k focus down
+# bindsym $mod+l focus up
+# bindsym $mod+semicolon focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+# bindsym $mod+Shift+j move left
+# bindsym $mod+Shift+k move down
+# bindsym $mod+Shift+l move up
+# bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Splits (set up the same way as vim splits)
+# Vertical split
+bindsym $mod+v split h
+
+# Horizontal split
+bindsym $mod+h split v
+
+# Layouts
+# Stacking
+bindsym $mod+s layout stacking
+
+# Tabbed
+bindsym $mod+t layout tabbed
+
+# Default
+bindsym $mod+e layout toggle split
+
+# Fullscreen
+bindsym $mod+f fullscreen toggle
+
+# Toggle floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# Switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+# bindsym $mod+3 workspace number $ws3
+# bindsym $mod+4 workspace number $ws4
+# bindsym $mod+5 workspace number $ws5
+# bindsym $mod+6 workspace number $ws6
+# bindsym $mod+7 workspace number $ws7
+# bindsym $mod+8 workspace number $ws8
+# bindsym $mod+9 workspace number $ws9
+# bindsym $mod+0 workspace number $ws10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+# bindsym $mod+Shift+3 move container to workspace number $ws3
+# bindsym $mod+Shift+4 move container to workspace number $ws4
+# bindsym $mod+Shift+5 move container to workspace number $ws5
+# bindsym $mod+Shift+6 move container to workspace number $ws6
+# bindsym $mod+Shift+7 move container to workspace number $ws7
+# bindsym $mod+Shift+8 move container to workspace number $ws8
+# bindsym $mod+Shift+9 move container to workspace number $ws9
+# bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+#+end_src
+
+* Window Styling
+#+begin_src conf
+# Remove titles
+for_window [class="^.*"] border pixel 4
+
+# Border colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #5e81ac   #5e81ac
+client.focused_inactive #333333 #5f676a #ffffff #3b526e   #3b526e
+client.unfocused        #333333 #222222 #888888 #3b526e   #3b526e
+client.urgent           #2f343a #900000 #ffffff #bf616a   #bf616a
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+# Gaps
+gaps inner 10
+gaps outer 3
+#+end_src
+
+#+CAPTION: Footer Decoration
+#+ATTR_HTML: :alt Footer Decoration :title Footer Decoration
+[[https://github.com/link-does-mods/dotfiles/blob/main/Footer%20Decoration.png?raw=true]]
