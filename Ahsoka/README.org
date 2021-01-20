@@ -22,6 +22,7 @@ You're probably wondering who Ahsoka is, if you've never seen Star Wars. Well...
 
 * Window Manager Configs
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/i3][i3]]
+- [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/openbox][Openbox]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.config/qtile][Qtile]]
 
 * Program Configs
