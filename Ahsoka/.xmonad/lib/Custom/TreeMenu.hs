@@ -31,7 +31,6 @@ import Data.Tree
 -- Menu
 ----------------------------------
 
--- Menu
 treeselectAction :: TS.TSConfig (X ()) -> X ()
 treeselectAction a = TS.treeselectAction a
     [ Node (TS.TSNode "+  Configs"    "Programs and Xmonad" (return ()))
