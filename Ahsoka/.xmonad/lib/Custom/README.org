@@ -1,0 +1,280 @@
+#+TITLE: Xmonad Key Binding and Tree Select Configs
+
+You’ve reached the other parts of my Xmonad config. These are the configs for both keybindings and the tree select menu. They were both moved here as my main config was getting rather lengthy. Also, since they are both in the same directory, this org document is shared bewtween the two configs.
+
+* Table of Contents :toc:
+- [[#keybindings][Keybindings]]
+  - [[#imoprt-libraries][Imoprt Libraries]]
+  - [[#key-bindings][Key Bindings]]
+  - [[#mouse-bindings][Mouse Bindings]]
+- [[#tree-select][Tree Select]]
+  - [[#import-libraries][Import Libraries]]
+  - [[#menu][Menu]]
+
+* Keybindings
+#+begin_src haskell
+module Custom.Keys where
+#+end_src
+
+** Imoprt Libraries
+#+begin_src haskell
+-- Custom
+import Custom.TreeMenu
+
+-- Base
+import XMonad
+import System.IO
+import System.Exit
+
+-- Actions
+import XMonad.Actions.SpawnOn
+import XMonad.Actions.CycleWS
+
+-- Data
+import qualified Data.Map as M
+
+-- Layout modifiers
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+
+-- Misc
+import Graphics.X11.ExtraTypes.XF86
+import qualified XMonad.StackSet as W
+#+end_src
+
+** Key Bindings
+#+begin_src haskell
+myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
+
+  -- <super> + <key>
+  [ ((modMask, xK_d ), spawn $ "rofi -show drun")
+  , ((modMask, xK_f), sendMessage $ Toggle NBFULL)
+  , ((modMask, xK_q), kill )
+  , ((modMask, xK_r), spawn $ "xmonad --restart" )
+  , ((modMask, xK_Return), spawn $ "alacritty" )
+
+  -- Fn keys
+
+  -- Super + shift keys
+  , ((modMask .|. shiftMask , xK_d), spawn $ "rofi-theme-selector" )
+  , ((modMask .|. shiftMask , xK_e ), spawn $ "arcolinux-logout")
+  , ((modMask .|. shiftMask , xK_r ), spawn $ "xmonad --recompile && xmonad --restart")
+
+  -- Screenshots
+  , ((modMask, xK_Print), spawn $ "flameshot gui")
+
+  -- Tree select
+  , ((modMask, xK_t), treeselectAction tsDefaultConfig)
+
+  -- Multimedia keys
+  , ((0, xF86XK_AudioMute), spawn $ "amixer -q set Master toggle")      -- Mute volume
+  , ((0, xF86XK_AudioLowerVolume), spawn $ "amixer -q set Master 5%-")  -- Lower volume
+  , ((0, xF86XK_AudioRaiseVolume), spawn $ "amixer -q set Master 5%+")  -- Raise volume
+  , ((0, xF86XK_AudioPlay), spawn $ "playerctl play-pause")             -- Play song
+  , ((0, xF86XK_AudioNext), spawn $ "playerctl next")                   -- Next song
+  , ((0, xF86XK_AudioPrev), spawn $ "playerctl previous")               -- Previous song
+  , ((0, xF86XK_AudioStop), spawn $ "playerctl stop")                   -- Stop song
+  , ((0, xF86XK_MonBrightnessUp),  spawn $ "xbacklight -inc 15")        -- Raise brightness
+  , ((0, xF86XK_MonBrightnessDown), spawn $ "xbacklight -dec 15")       -- Lower brightness
+
+  -- Cycle through the available layout algorithms.
+  , ((modMask, xK_space), sendMessage NextLayout)
+
+  --  Reset the layouts on the current workspace to default.
+  , ((modMask .|. shiftMask, xK_space), setLayout $ XMonad.layoutHook conf)
+
+  -- Move focus to the next window.
+  , ((modMask, xK_Down), windows W.focusDown)
+  , ((modMask, xK_j), windows W.focusDown)
+
+  -- Move focus to the previous window.
+  , ((modMask, xK_Up), windows W.focusUp  )
+  , ((modMask, xK_k), windows W.focusUp  )
+
+  -- Move focus to the master window.
+  , ((modMask .|. shiftMask, xK_m), windows W.focusMaster  )
+
+  -- Swap the focused window with the next window.
+  , ((modMask .|. shiftMask, xK_Down), windows W.swapDown  )
+  , ((modMask .|. shiftMask, xK_j), windows W.swapDown  )
+
+  -- Swap the focused window with the previous window.
+  , ((modMask .|. shiftMask, xK_Up), windows W.swapUp  )
+  , ((modMask .|. shiftMask, xK_k), windows W.swapUp  )
+
+  -- Shrink the master area.
+  , ((controlMask .|. shiftMask , xK_Left), sendMessage Shrink)
+  , ((controlMask .|. shiftMask , xK_h), sendMessage Shrink)
+
+  -- Expand the master area.
+  , ((controlMask .|. shiftMask , xK_Right), sendMessage Expand)
+  , ((controlMask .|. shiftMask , xK_l), sendMessage Expand)
+
+  -- Push window back into tiling.
+  , ((controlMask .|. shiftMask , xK_t), withFocused $ windows . W.sink)
+
+  -- Increment the number of windows in the master area.
+  , ((controlMask .|. modMask, xK_Left), sendMessage (IncMasterN 1))
+  , ((controlMask .|. modMask, xK_h), sendMessage (IncMasterN 1))
+
+  -- Decrement the number of windows in the master area.
+  , ((controlMask .|. modMask, xK_Right), sendMessage (IncMasterN (-1)))
+  , ((controlMask .|. modMask, xK_l), sendMessage (IncMasterN (-1)))
+
+  ]
+  ++
+
+  -- mod-[1..9], Switch to workspace N
+  -- mod-shift-[1..9], Move client to workspace N
+  [((m .|. modMask, k), windows $ f i)
+
+  --Keyboard layouts
+  --qwerty users use this line
+   | (i, k) <- zip (XMonad.workspaces conf) [xK_1,xK_2,xK_3,xK_4,xK_5,xK_6,xK_7,xK_8,xK_9,xK_0]
+    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)
+      , (\i -> W.greedyView i . W.shift i, shiftMask)]]
+
+  ++
+
+  -- mod-{left,right}, Switch to physical/Xinerama screens 1, or 2
+  -- mod-shift-{left,right}, Move client to screen 1, or 2
+  [((m .|. modMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
+      | (key, sc) <- zip [xK_Left, xK_Right] [0..]
+      , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+#+end_src
+
+** Mouse Bindings
+#+begin_src haskell
+-- Floating mode
+myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
+
+    -- mod-button1, Set the window to floating mode and move by dragging
+    [ ((modMask, 1), (\w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster))
+
+    -- mod-button2, Raise the window to the top of the stack
+    , ((modMask, 2), (\w -> focus w >> windows W.shiftMaster))
+
+    -- mod-button3, Set the window to floating mode and resize by dragging
+    , ((modMask, 3), (\w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster))
+
+    ]
+#+end_src
+
+* Tree Select
+#+begin_src haskell
+module Custom.TreeMenu where
+#+end_src
+
+** Import Libraries
+#+begin_src haskell
+-- Base
+import XMonad
+import qualified XMonad.StackSet as W
+
+-- Actions
+import qualified XMonad.Actions.TreeSelect as TS
+
+-- Data
+import qualified Data.Map as M
+import Data.Tree
+#+end_src
+
+** Menu
+#+begin_src haskell
+treeselectAction :: TS.TSConfig (X ()) -> X ()
+treeselectAction a = TS.treeselectAction a
+    [ Node (TS.TSNode "+  Configs"    "Programs and Xmonad" (return ()))
+        [ Node (TS.TSNode "+ Xmonad" "" (return ()))
+            [ Node (TS.TSNode "+ Main" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.xmonad/xmonad.hs"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.xmonad/xmonad.hs"))  []
+                ]
+            , Node (TS.TSNode "+ Keys" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.xmonad/lib/Custom/Keys.hs"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.xmonad/lib/Custom/Keys.hs"))  []
+                ]
+            , Node (TS.TSNode "+ Tree Select" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.xmonad/lib/Custom/TreeMenu.hs"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.xmonad/lib/Custom/TreeMenu.hs"))  []
+                ]
+            , Node (TS.TSNode "+ Autostart" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.xmonad/scripts/autostart.sh"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.xmonad/scripts/autostart.sh"))  []
+                ]
+            ]
+        , Node (TS.TSNode "+ Editors" "" (return ()))
+            [ Node (TS.TSNode "+ Neovim" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.config/nvim/init.vim"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.config/nvim/init.vim"))  []
+                ]
+            , Node (TS.TSNode "+ Doom Emacs" "" (return()))
+                [ Node (TS.TSNode "+ Config" "" (return()))
+                    [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.doom.d/config.el"))  []
+                    , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.doom.d/config.el"))  []
+                    ]
+                , Node (TS.TSNode "+ Init" "" (return()))
+                    [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.doom.d/init.el"))  []
+                    , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.doom.d/init.el"))  []
+                    ]
+                ]
+            ]
+        , Node (TS.TSNode "+ Alacritty" "" (return()))
+                [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.config/alacritty/alacritty.yml"))  []
+                , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.config/alacritty/alacritty.yml"))  []
+                ]
+        , Node (TS.TSNode "+ Polybar"    "" (return ()))
+            [ Node (TS.TSNode "Open" "Open in VScode" (spawn "code ~/.config/polybar/config"))  []
+            , Node (TS.TSNode "Directory" "Open in file manager" (spawn "nemo ~/.config/polybar/config"))  []
+            ]
+        ]
+    , Node (TS.TSNode "+ Bookmarks" "" (return ()))
+        [ Node (TS.TSNode "+ Keybindings" "" (return()))
+            [ Node (TS.TSNode "Xmonad" "" (spawn "brave https://gist.github.com/micrub/aeebe7eb4d2df9e5e203e76a0fd89542"))  []
+            , Node (TS.TSNode "Neovim" "" (spawn "brave https://vim.rtorr.com/"))  []
+            , Node (TS.TSNode "Doom Emacs" "" (spawn "brave https://gist.github.com/hjertnes/9e14416e8962ff5f03c6b9871945b165"))  []
+            ]
+        , Node (TS.TSNode "+ Repositories" "Github and Gitlab" (return()))
+            [ Node (TS.TSNode "My Page" "" (spawn "brave https://github.com/link-does-mods"))  []
+            , Node (TS.TSNode "Distrotube" "" (spawn "brave https://gitlab.com/dwt1"))  []
+            ]
+        ]
+    ]
+
+-- Config
+tsDefaultConfig :: TS.TSConfig a
+tsDefaultConfig = TS.TSConfig { TS.ts_hidechildren = True
+                              , TS.ts_background   = 0xaf2e3440
+                              , TS.ts_font         = "xft:Sans-16"
+                              , TS.ts_node         = (0xffd8dee9, 0xff2c3954)
+                              , TS.ts_nodealt      = (0xffd8dee9, 0xff2e3440)
+                              , TS.ts_highlight    = (0xffffffff, 0xff5e81ac)
+                              , TS.ts_extra        = 0xffd8dee9
+                              , TS.ts_node_width   = 180
+                              , TS.ts_node_height  = 30
+                              , TS.ts_originX      = 0
+                              , TS.ts_originY      = 0
+                              , TS.ts_indent       = 80
+                              , TS.ts_navigate     = myTreeNavigation
+                              }
+
+-- Key Bindings
+myTreeNavigation = M.fromList
+    [ ((0, xK_Escape), TS.cancel)
+    , ((0, xK_Return), TS.select)
+    , ((0, xK_space),  TS.select)
+
+    -- Arrow keys
+    , ((0, xK_Up),     TS.movePrev)
+    , ((0, xK_Down),   TS.moveNext)
+    , ((0, xK_Left),   TS.moveParent)
+    , ((0, xK_Right),  TS.moveChild)
+
+    -- Vim keys
+    , ((0, xK_k),      TS.movePrev)
+    , ((0, xK_j),      TS.moveNext)
+    , ((0, xK_h),      TS.moveParent)
+    , ((0, xK_l),      TS.moveChild)
+    , ((0, xK_o),      TS.moveHistBack)
+    , ((0, xK_i),      TS.moveHistForward)
+    ]
+#+end_src

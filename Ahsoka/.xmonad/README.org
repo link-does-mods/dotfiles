@@ -8,15 +8,13 @@ in for them. You'll for sure want parts of my config, so go on ahead! Take what 
 * Table of Contents :toc:
 - [[#other-parts][Other Parts]]
 - [[#import-libraries][Import Libraries]]
-- [[#autostart-script][Autostart Script]]
-- [[#window-colors][Window Colors]]
+- [[#autostart][Autostart]]
 - [[#variables][Variables]]
 
 * Other Parts
 To make things less bloated, I split up the config into multiple config files. To find my
-keybindings as well as my tree menu configuration, go to these sections:
-- [[https://github.com/link-does-mods/dotfiles/blob/main/.xmonad/lib/Custom/Keys.hs][Keybindings]]
-- [[https://github.com/link-does-mods/dotfiles/blob/main/.xmonad/lib/Custom/TreeMenu.hs][Tree Menu]]
+key bindings as well as my tree menu configuration, go to this section:
+[[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka/.xmonad/lib/Custom][Key bindings and tree menu]]
 
 * Import Libraries
 #+begin_src haskell
@@ -74,15 +72,14 @@ import qualified DBus as D
 import qualified DBus.Client as D
 #+end_src
 
-* Autostart Script
+* Autostart
 #+begin_src haskell
--- Autostart script
 myStartupHook = do
     spawn "$HOME/.xmonad/scripts/autostart.sh" -- Location to autostart.sh
     setWMName "LG3D"                           -- Custom WM name
 #+end_src
 
-* Window Colors
+* Variables
 #+begin_src haskell
 -- colors
 normBord = "#485e8c"
@@ -90,10 +87,7 @@ focdBord = "#7aa2f7"
 fore     = "#DEE3E0"
 back     = "#282c34"
 winType  = "#c678dd"
-#+end_src
 
-* Variables
-#+begin_src haskell
 --mod4Mask= super key
 --mod1Mask= alt key
 --controlMask= ctrl key
@@ -182,3 +176,7 @@ main = do
 , mouseBindings = myMouseBindings
 }
 #+end_src
+
+#+CAPTION: Footer Decoration
+#+ATTR_HTML: :alt Footer Decoration :title Footer Decoration :style margin-left: auto; margin-right: auto;
+[[https://github.com/link-does-mods/dotfiles/blob/main/Footer%20Decoration.png?raw=true]]
