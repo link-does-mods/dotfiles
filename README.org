@@ -5,6 +5,7 @@ Each is configured specifically to my liking with custom themes, color schemes, 
 * Table of Contents :toc:
 - [[#dotfiles][Dotfiles?]]
 - [[#themes][Themes]]
+- [[#documentation][Need the Documentation?]]
 
 * Dotfiles?
 #+CAPTION: Desktop Screenshot
@@ -16,3 +17,6 @@ My dotfiles are here! All of my various window manager and program configs are h
 * Themes
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Tokyo%20Night][Tokyo Night]]
 - [[https://github.com/link-does-mods/dotfiles/tree/main/Ahsoka][Ahsoka]]
+
+* Documentation?
+[[https://github.com/link-does-mods/dotfiles/wiki][Refer here.]]
