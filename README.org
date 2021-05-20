@@ -5,7 +5,7 @@ Each is configured specifically to my liking with custom themes, color schemes, 
 * Table of Contents :toc:
 - [[#dotfiles][Dotfiles?]]
 - [[#themes][Themes]]
-- [[#documentation][Need the Documentation?]]
+- [[#documentation][Documentation?]]
 
 * Dotfiles?
 #+CAPTION: Desktop Screenshot
